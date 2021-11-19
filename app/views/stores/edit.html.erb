@@ -2,5 +2,7 @@
 
 <%= render 'form', store: @store %>
 
-<%= link_to 'Show', @store %> |
-<%= link_to 'Back', stores_path %>
+<% if current_user.admin?%>
+    <%= link_to 'Show', @store %> |
+    <%= link_to 'Back', stores_path %>
+<% end %>

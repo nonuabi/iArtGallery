@@ -13,7 +13,11 @@ class StoresController < ApplicationController
 
   # GET /stores/new
   def new
-    @store = Store.new
+    if !current_user.admin?
+      render "home/index"
+    else 
+      @store = Store.new
+    end 
   end
 
   # GET /stores/1/edit
@@ -25,15 +29,19 @@ class StoresController < ApplicationController
 
   # POST /stores or /stores.json
   def create
-    @store = Store.new(store_params)
+    if !current_user.admin?
+      render "home/index"
+    else 
+      @store = Store.new(store_params)
 
-    respond_to do |format|
-      if @store.save
-        format.html { redirect_to @store, notice: "Store was successfully created." }
-        format.json { render :show, status: :created, location: @store }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @store.save
+          format.html { redirect_to @store, notice: "Store was successfully created." }
+          format.json { render :show, status: :created, location: @store }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @store.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -57,10 +65,14 @@ class StoresController < ApplicationController
 
   # DELETE /stores/1 or /stores/1.json
   def destroy
-    @store.destroy
-    respond_to do |format|
-      format.html { redirect_to stores_url, notice: "Store was successfully destroyed." }
-      format.json { head :no_content }
+    if !current_user.admin?
+      render "home/index"
+    else 
+      @store.destroy
+      respond_to do |format|
+        format.html { redirect_to stores_url, notice: "Store was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
   end
 
