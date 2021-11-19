@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   before_action :set_store, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:show, :index]
 
   # GET /stores or /stores.json
   def index
@@ -17,6 +18,9 @@ class StoresController < ApplicationController
 
   # GET /stores/1/edit
   def edit
+    if !current_user.admin?
+      render "home/index"
+    end
   end
 
   # POST /stores or /stores.json
@@ -36,14 +40,18 @@ class StoresController < ApplicationController
 
   # PATCH/PUT /stores/1 or /stores/1.json
   def update
-    respond_to do |format|
-      if @store.update(store_params)
-        format.html { redirect_to @store, notice: "Store was successfully updated." }
-        format.json { render :show, status: :ok, location: @store }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
+    if current_user.admin?
+      respond_to do |format|
+        if @store.update(store_params)
+          format.html { redirect_to @store, notice: "Store was successfully updated." }
+          format.json { render :show, status: :ok, location: @store }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @store.errors, status: :unprocessable_entity }
+        end
       end
+    else 
+       render "home/index"
     end
   end
 
