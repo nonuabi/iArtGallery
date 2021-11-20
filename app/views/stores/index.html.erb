@@ -1,8 +1,9 @@
+<%= render 'layouts/menu'%>
 <p id="notice"><%= notice %></p>
 
 <h1>Stores</h1>
 
-<table>
+ <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -32,3 +33,6 @@
 <% if current_user && current_user.admin?%>
 <%= link_to 'New Store', new_store_path %>
 <% end %>
+
+
+

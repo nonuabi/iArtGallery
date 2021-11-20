@@ -19,7 +19,7 @@
 
 $(document).on("turbolinks:load", function () {
   $(".ui.dropdown").dropdown();
-});
-$(".special.cards .image").dimmer({
-  on: "hover",
+  $("#toggle").click(function () {
+    $(".ui.sidebar").sidebar("toggle");
+  });
 });

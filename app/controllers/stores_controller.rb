@@ -13,7 +13,7 @@ class StoresController < ApplicationController
 
   # GET /stores/new
   def new
-    if !current_user.admin?
+    if current_user && !current_user.admin?
       render "home/index"
     else 
       @store = Store.new
@@ -22,14 +22,14 @@ class StoresController < ApplicationController
 
   # GET /stores/1/edit
   def edit
-    if !current_user.admin?
+    if current_user && !current_user.admin?
       render "home/index"
     end
   end
 
   # POST /stores or /stores.json
   def create
-    if !current_user.admin?
+    if  current_user && !current_user.admin?
       render "home/index"
     else 
       @store = Store.new(store_params)
@@ -48,7 +48,7 @@ class StoresController < ApplicationController
 
   # PATCH/PUT /stores/1 or /stores/1.json
   def update
-    if current_user.admin?
+    if current_user && current_user.admin?
       respond_to do |format|
         if @store.update(store_params)
           format.html { redirect_to @store, notice: "Store was successfully updated." }
@@ -65,7 +65,7 @@ class StoresController < ApplicationController
 
   # DELETE /stores/1 or /stores/1.json
   def destroy
-    if !current_user.admin?
+    if current_user && !current_user.admin?
       render "home/index"
     else 
       @store.destroy

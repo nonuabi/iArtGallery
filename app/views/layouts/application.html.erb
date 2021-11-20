@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigationbar'%>
-    <%= yield %>
+    <div class='dimmed pusher'>
+      <%= render 'layouts/navigationbar'%>  
+      <%= yield %>
+    </div>
   </body>
 </html>
