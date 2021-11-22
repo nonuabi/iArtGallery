@@ -14,6 +14,11 @@
   <strong>Size:</strong>
   <%= @store.size %>
 </p>
+<p>
+  <% if @store.product_image.attached? %>
+    <%= image_tag(@store.product_image, style: 'height:50%; width:50%;')  %>
+    <% end %>
+</p>
 <% if current_user.admin?%>
   <%= link_to 'Edit', edit_store_path(@store) %> |
   <%= link_to 'Back', stores_path %>

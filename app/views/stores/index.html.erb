@@ -1,7 +1,7 @@
 <%= render 'layouts/menu'%>
 <p id="notice"><%= notice %></p>
 
-<div class='ui container'>
+<div class='ui container' style="margin-top:6rem;">
 
  <table  class="ui teal striped table">
   <thead>
@@ -16,6 +16,11 @@
   <tbody>
     <% @stores.each do |store| %>
       <tr>
+        <td>
+          <% if store.product_image.attached? %>
+            <%= image_tag(store.product_image, style: 'height:50%; width:50%;')  %>
+          <% end %>
+        </td>
         <td><%= store.name %></td>
         <td><%= store.price %></td>
         <td><%= store.size %></td>
@@ -35,4 +40,5 @@
 <% end %>
 
 
+</div>
 </div>

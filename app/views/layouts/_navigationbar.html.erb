@@ -1,7 +1,12 @@
-<div class="ui inverted fixed  large menu">
+<div class="ui fixed inverted mini menu" >
     <div class='ui container'>
-        
         <%= link_to 'iArtGallery', root_path, class:'item'%>
+         <div class='item'>
+                <a id="toggle" class='item'>
+                    <i class='sidebar icon'></i>
+                    Categories
+                </a>                     
+            </div>
         <div class="right menu">
             
             <% if current_user && current_user.admin?%>
@@ -20,12 +25,10 @@
                     <% end %>
                 </div>
             </div>
-            <div class='item'>
-            <a id="toggle" class='item'>
-                <i class='sidebar icon'></i>
-                Menu
-            </a>                     
-        </div>
+            <div class="item">
+                    <%= link_to "Cart", '/stores', class:"ui orange button"%>
+                </div>
+           
         </div>
     </div>
 </div>
