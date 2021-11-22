@@ -8,7 +8,6 @@
                 </a>                     
             </div>
         <div class="right menu">
-            
             <% if current_user && current_user.admin?%>
                 <div class="item">
                     <%= link_to "Store", '/stores', class:"ui orange button"%>
@@ -26,9 +25,8 @@
                 </div>
             </div>
             <div class="item">
-                    <%= link_to "Cart", '/stores', class:"ui orange button"%>
-                </div>
-           
+                    <%= link_to "Cart", '/line_items', class:"ui orange button"%>
+            </div>
         </div>
     </div>
 </div>

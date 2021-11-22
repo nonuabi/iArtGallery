@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
 ruby '2.6.8'
+gem 'activemerchant'
 gem 'dotenv-rails'
 gem 'semantic-ui-sass'
 gem 'jquery-rails'

@@ -33,6 +33,7 @@
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v5.2.6, ruby-2.6.8-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionview (v5.2.6, ruby-2.6.8-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activejob (v5.2.6, ruby-2.6.8-p205) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activemerchant (v1.124.0, ruby-2.6.8-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v5.2.6, ruby-2.6.8-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v5.2.6, ruby-2.6.8-p205) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v5.2.6, ruby-2.6.8-p205) [gem]" level="application" />
