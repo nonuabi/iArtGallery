@@ -56,3 +56,12 @@
   font-family: "Courier Prime", monospace;
   font-size: 1.5rem;
 }
+#form-section{
+    display: flex;
+}
+#submit-query-btn{
+    padding: 0;
+    background: 0;
+    border: 0;
+    margin: 0 0 0 -20px;
+}

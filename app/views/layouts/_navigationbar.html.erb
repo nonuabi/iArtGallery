@@ -6,7 +6,18 @@
                     <i class='sidebar icon'></i>
                     Categories
                 </a>                     
-            </div>
+         </div>
+      <div class="item">
+        <div class="ui form">
+          <%= form_with url: '/gallery/random', id:"form-section", method: :get do |form|%>
+            <%= form.text_field :search %>
+            <%= form.submit "search" ,id:".notify-btn"  %>
+          <% end %>
+        </div>
+      </div>
+      <div class="item">
+        <%=link_to 'search', "/gallery/search" %>
+      </div>
         <div class="right menu">
             <% if current_user && current_user.admin?%>
                 <div class="item">

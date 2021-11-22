@@ -41,4 +41,23 @@ class GalleryController < ApplicationController
       end
     end
   end
+
+  def search
+    keyword="%" + params[:search].to_s + "%"
+    @gallery = Store.find_by_sql ["SELECT * FROM stores WHERE name LIKE ? ",keyword]
+    puts "--------@gallery------------"
+    puts @gallery.inspect
+    puts "--------@gallery------------"
+    render  :action => :search
+  end
+
+  def random
+    keyword="%" + params[:search].to_s + "%"
+    @gallery = Store.find_by_sql ["SELECT * FROM stores WHERE name LIKE ? ",keyword]
+    puts "--------@gallery------------"
+    puts @gallery.inspect
+    puts "--------@gallery------------"
+
+
+  end
 end
