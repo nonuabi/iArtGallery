@@ -22,8 +22,9 @@ $(document).on("turbolinks:load", function () {
   $("#toggle").click(function () {
     $(".ui.sidebar").sidebar("toggle");
   });
-    $('#notify-btn').click(function(e){
-        e.preventDefault();
-    });
+
+
+
+
 });
 

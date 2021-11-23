@@ -1,6 +1,29 @@
-<tr id="current_item">
 
-  <td><%= line_item.quantity%> &times;</td>
-  <td><%= line_item.store.name%></td>
+<tr id="current_item">
+  <td>
+    <h4 class="ui image header">
+      <% if line_item.store.product_image.attached? %>
+        <%= image_tag(line_item.store.product_image,class:"ui mini rounded image")  %>
+      <% end %>
+      <div class="content">
+        <%= line_item.store.name%>
+      <div class="sub header">
+        <%= line_item.store.size%>
+      </div>
+      </div>
+    </h4>
+  </td>
+  <td><%= line_item.quantity%> </td>
   <td><%= number_to_currency(line_item.total_price)%> </td>
+
 </tr>
+<!--<td><%#= line_item.store.name%></td>-->
+<!--<td><%#= number_to_currency(line_item.total_price)%> </td> <br><br><br><br>-->
+<!--<div>-->
+  <%#= line_item.quantity%>
+  <%#= line_item.store.name%>
+  <%#= number_to_currency(line_item.total_price)%>
+<!--</div>-->
+<!--<p><%#= line_item.quantity%> &times;</p><br>-->
+<!--<p><%#= line_item.store.name%></p><br>-->
+<!--<p><%#= number_to_currency(line_item.total_price)%> </p><br>-->
