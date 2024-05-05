@@ -1,24 +1,37 @@
-# README
+# My Ruby Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+This is a Ruby on Rails application that serves as an art gallery. It allows users to view, upload, and rate artwork.
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+### Prerequisites
 
-* Configuration
+- Ruby version: This project uses Ruby 2.6.8. You can check your Ruby version with the command `ruby -v`.
+- System dependencies: This project requires a PostgreSQL database. Make sure you have it installed and running on your system.
 
-* Database creation
+### Installation
 
-* Database initialization
+Follow these steps to get a development environment running:
 
-* How to run the test suite
+```sh
+# Clone the repository
+git clone https://github.com/username/my-ruby-project.git
 
-* Services (job queues, cache servers, search engines, etc.)
+# Navigate into the directory
+cd my-ruby-project
 
-* Deployment instructions
+# Install Ruby dependencies
+bundle install
 
-* ...
+# Create the database
+rails db:create
+
+# Run migrations
+rails db:migrate
+
+# Start the Rails server
+rails server
+
+```
