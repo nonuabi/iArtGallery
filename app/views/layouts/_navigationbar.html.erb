@@ -1,43 +1,40 @@
 <div class="ui fixed inverted mini menu" >
-    <div class='ui container'>
-        <%= link_to 'iArtGallery', '/gallery/index', class:'item'%>
-         <div class='item'>
-                <a id="toggle" class='item'>
-                    <i class='sidebar icon'></i>
-                    Categories
-                </a>                     
-         </div>
-      <div class="item">
-        <div class="ui form">
-          <%= form_with url: '/gallery/search', id:"form-section", local: true, method: :get do |form|%>
-            <%= form.text_field :search, id:"search-query-field"%>
-            <%= form.button :submit, id:"submit-query-btn" do %>
-              <i class="ui search icon"></i>
-            <% end %>
+  <div class='ui container'>
+    <%= link_to 'iArtGallery', root_path, class:'item'%>
+
+    <div class="item">
+      <div class="ui form">
+        <%= form_with url: '/gallery/search', id:"form-section", local: true, method: :get do |form|%>
+          <%= form.text_field :search, id:"search-query-field"%>
+          <%= form.button :submit, id:"submit-query-btn" do %>
+            <i class="ui search icon"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="right menu">
+      <% if current_user && current_user.admin? %>
+        <div class="item">
+          <%= link_to "Store", '/stores', class:"ui orange button"%>
+        </div>
+      <% end %>
+
+      <div class="ui dropdown item">
+        Account <i class="dropdown icon"></i>
+        <div class="menu">
+          <% if current_user %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:'item' %>
+          <% else %>
+            <%= link_to 'Sign in', new_user_session_path, class:'item'%>
+            <%= link_to 'Sign up', new_user_registration_path, class:'item' %>
           <% end %>
         </div>
       </div>
 
-        <div class="right menu">
-            <% if current_user && current_user.admin?%>
-                <div class="item">
-                    <%= link_to "Store", '/stores', class:"ui orange button"%>
-                </div>
-            <% end %>
-            <div class="ui dropdown item">
-                Account <i class="dropdown icon"></i>
-                <div class="menu">
-                    <% if current_user %>
-                        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:'item' %>
-                    <% else %>
-                        <%= link_to 'Sign in', new_user_session_path, class:'item'%>
-                        <%= link_to 'Sign up', new_user_registration_path, class:'item' %>
-                    <% end %>
-                </div>
-            </div>
-            <div class="item">
-                    <%= link_to "Cart", '/line_items', class:"ui orange button"%>
-            </div>
-        </div>
+      <div class="item">
+        <%= link_to "Cart", '/line_items', class:"ui orange button"%>
+      </div>
     </div>
+  </div>
 </div>
